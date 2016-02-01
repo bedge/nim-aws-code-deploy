@@ -26,7 +26,7 @@ files:
   - source: cb.list
     destination: /etc/apt/sources.list.d/cb.list
   - source: scripts/*
-    destination: /usr/sbin
+    destination: /usr/local/bin
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
 #   you can specify a "permissions" 
 #   section here that describes special permissions to apply to the files 
@@ -80,7 +80,7 @@ hooks:
 #   in the script specified in "location" starting from the root of the 
 #   revision's file bundle.
   ApplicationStop:
-    - location: /usr/sbin/stop-cb.sh
+    - location: /usr/local/bin/stop-cb.sh
       timeout:
       runas: root
     # - location: 
@@ -98,7 +98,7 @@ hooks:
 # During the AfterInstall deployment lifecycle event, run the commands 
 #   in the script specified in "location".
   AfterInstall:
-    - location: /usr/sbin/deploy-cb-revision.sh
+    - location: /usr/local/bin/deploy-cb-revision.sh
       timeout: 
       runas: root
     # - location: 
@@ -116,7 +116,7 @@ hooks:
 # During the ValidateService deployment lifecycle event, run the commands 
 #   in the script specified in "location".
   ValidateService:
-    - location: /usr/sbin/validate-cb-running.sh
+    - location: /usr/local/bin/validate-cb-running.sh
       timeout: 
       runas: root
     # - location: 

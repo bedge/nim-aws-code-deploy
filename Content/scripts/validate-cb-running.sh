@@ -1,8 +1,7 @@
 #!/bin/bash
 #
-echo "$*"
+echo "Validating CB running..."
+echo "*$"
 env 
 pwd
-ls
-id
 

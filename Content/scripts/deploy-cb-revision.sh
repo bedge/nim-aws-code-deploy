@@ -1,8 +1,6 @@
 #!/bin/bash
 #
-echo "$*"
+echo "Starting CB deployment..."
 env 
 pwd
-ls
-id
 

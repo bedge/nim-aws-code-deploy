@@ -1,8 +1,6 @@
 #!/bin/bash
 #
-echo "$*"
+echo "Stopping CB..."
 env 
 pwd
-ls
-id
 

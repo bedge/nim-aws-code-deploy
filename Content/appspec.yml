@@ -24,8 +24,8 @@ os: linux
 #   may cause associated deployments to fail.
 files:
   - source: cb.list
-    destination: /etc/apt/sources.list.d/cb.list
-  - source: scripts/*
+    destination: /etc/apt/sources.list.d
+  - source: scripts/
     destination: /usr/sbin
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
 #   you can specify a "permissions" 
@@ -80,45 +80,45 @@ hooks:
 #   in the script specified in "location" starting from the root of the 
 #   revision's file bundle.
   ApplicationStop:
+    - location:  /usr/bin/touch /tmp/ApplicationStop
+      timeout:
+      runas: root
     - location: /usr/sbin/stop-cb.sh
       timeout:
       runas: root
-    # - location: 
-    #   timeout:
-    #   runas: 
 # During the BeforeInstall deployment lifecycle event, run the commands 
 #   in the script specified in "location".
-  # BeforeInstall:
-  #   - location: 
-  #     timeout:
-  #     runas:
+  BeforeInstall:
+    - location: /usr/bin/touch /tmp/BeforeInstall
+      timeout:
+      runas:
     # - location: 
     #   timeout:
     #   runas:
 # During the AfterInstall deployment lifecycle event, run the commands 
 #   in the script specified in "location".
   AfterInstall:
+    - location:  /usr/bin/touch /tmp/AfterInstall
+      timeout: 
+      runas: root
     - location: /usr/sbin/deploy-cb-revision.sh
       timeout: 
       runas: root
-    # - location: 
-    #   timeout:
-    #   runas:
 # During the ApplicationInstall deployment lifecycle event, run the commands 
 #   in the script specified in "location".
-  # ApplicationStart:
-  #   - location: 
-  #     timeout: 
-  #     runas:
+  ApplicationStart:
+    - location:  /usr/bin/touch /tmp/ApplicationStart
+      timeout: 
+      runas: root
   #   - location: 
   #     timeout:
   #     runas:
 # During the ValidateService deployment lifecycle event, run the commands 
 #   in the script specified in "location".
   ValidateService:
+    - location:  /usr/bin/touch /tmp/ValidateService
+      timeout: 
+      runas: root
     - location: /usr/sbin/validate-cb-running.sh
       timeout: 
       runas: root
-    # - location: 
-    #   timeout:
-    #   runas:

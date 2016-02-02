@@ -23,8 +23,8 @@ os: linux
 #   "files" section altogether. A blank or incomplete "files" section
 #   may cause associated deployments to fail.
 files:
-  - source: cb.list
-    destination: /etc/apt/sources.list.d/cb.list
+  - source: Content.list
+    destination: /etc/apt/sources.list.d/
   - source: scripts/*
     destination: /usr/local/bin
 # For deployments to Amazon Linux, Ubuntu Server, or RHEL instances,
